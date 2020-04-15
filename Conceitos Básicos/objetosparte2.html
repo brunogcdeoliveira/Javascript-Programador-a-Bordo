@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programador a bordo</title>
+</head>
+
+<body>
+    <script>
+        console.log('------------------------------------');
+        console.log('Destructuring ES6');
+        console.log('-----------------');
+
+        var novoUsuario = {
+            nome: 'Bruno',
+            idade: 31,
+            pais: 'Brasil',
+            youtube: 'Programador a bordo'
+        };
+
+        //Modo tradicional de atribuir conteúdo de um objeto a uma variável
+        //var idade = novoUsuario.idade;
+        //console.log(idade);
+
+        //Atribuindo conteúdo de um objeto a uma variável com Destructuring
+
+        //Uma variável
+        var { nome } = novoUsuario;
+        console.log(nome);
+
+        //Mais de uma variável
+        var { idade, pais } = novoUsuario;
+        console.log(idade);
+        console.log(pais);
+
+        //Mudando nome da variável
+        var { nome: primeiroNome } = novoUsuario;
+        console.log(primeiroNome);
+
+        var { youtube: canal } = novoUsuario;
+        console.log(canal);
+
+        console.log('------------------------------------');
+
+        //Destructuring com objetos aninhados
+        var novoUsuario2 = {
+            nome: {
+                primeiro: 'Bruno',
+                //meio: 'Cavinatto',
+                ultimo: 'de Oliveira'
+            }
+        };
+
+        //Modo tradicional
+        //var primeiro = novoUsuario2.nome.primeiro;
+        //console.log(primeiro);
+
+        //Com Destructuring
+        var { nome: { primeiro } } = novoUsuario2;
+        console.log(`Primeiro nome: ${primeiro}`);
+
+        var { nome: { meio = 'Não definido' } } = novoUsuario2;
+        console.log(`Nome do meio: ${meio}`);
+
+        var { nome: { ultimo } } = novoUsuario2;
+        console.log(`Último nome: ${ultimo}`);
+
+        console.log('------------------------------------');
+
+        //Destructuring como parâmetro de função
+
+        /*
+        //Modo tradicional
+        function imprimeUsuario(usuario){
+            console.log(usuario.nome);
+            console.log(usuario.idade);
+            console.log(usuario.sexo);
+        };
+        */
+
+        //Com Destructuring
+        function imprimeUsuario({ nome, idade, sexo, pais = 'Não definido' }) {
+            console.log(`Nome: ${nome}`);
+            console.log(`Idade: ${idade}`);
+            console.log(`Sexo: ${sexo}`);
+            //Com valor default
+            console.log(`País: ${pais}`);
+
+        };
+
+        //Imprimindo
+        var usuarioFunction = {
+            nome: 'Bruno',
+            idade: 31,
+            sexo: 'M',
+            //pais: 'Brasil'
+        }
+
+        imprimeUsuario(usuarioFunction);
+
+        console.log('---------ALGUNS MÉTODOS-----------');
+        //Retorna um array com as chaves do objeto
+        console.log(Object.keys(usuarioFunction));
+        //Retorna os valores contidos das chaves do objeto'
+        console.log(Object.values(usuarioFunction));
+
+    </script>
+</body>
+
+</html>
