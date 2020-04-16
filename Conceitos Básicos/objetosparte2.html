@@ -9,7 +9,8 @@
 
 <body>
     <script>
-        console.log('------------------------------------');
+
+        /* console.log('------------------------------------');
         console.log('Destructuring ES6');
         console.log('-----------------');
 
@@ -81,30 +82,46 @@
         */
 
         //Com Destructuring
-        function imprimeUsuario({ nome, idade, sexo, pais = 'Não definido' }) {
+        /*function imprimeUsuario({ nome, idade, sexo, pais = 'Não definido' }) {
             console.log(`Nome: ${nome}`);
             console.log(`Idade: ${idade}`);
             console.log(`Sexo: ${sexo}`);
             //Com valor default
             console.log(`País: ${pais}`);
 
-        };
+        }; */
 
         //Imprimindo
         var usuarioFunction = {
             nome: 'Bruno',
             idade: 31,
             sexo: 'M',
-            //pais: 'Brasil'
+            pais: 'Brasil'
         }
 
-        imprimeUsuario(usuarioFunction);
+        /* imprimeUsuario(usuarioFunction);
 
         console.log('---------ALGUNS MÉTODOS-----------');
         //Retorna um array com as chaves do objeto
         console.log(Object.keys(usuarioFunction));
         //Retorna os valores contidos das chaves do objeto'
-        console.log(Object.values(usuarioFunction));
+        console.log(Object.values(usuarioFunction)); */
+
+        var props = Object.keys(usuarioFunction);
+        console.log(props);
+        
+        for(var i = 0; i < props.length; i++){
+            console.log(props[i]);
+            console.log('usuarioFunction', usuarioFunction[props[i]]);     
+        }
+
+        for(var prop of props){
+            console.log('usuarioFunction', usuarioFunction[prop]);
+        }
+
+        for(var prop2 in usuarioFunction){
+            console.log(prop2, usuarioFunction[prop2]);  
+        }
 
     </script>
 </body>
