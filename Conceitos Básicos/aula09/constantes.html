@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo</title>
+</head>
+
+<body>
+    <script>
+        const anoNascimento = 1992
+        console.log(anoNascimento);
+
+        if (true) {
+            const autor = 1992
+            console.log(autor);
+        }
+        //Var constante existe no escopo de bloco, não tem visibilidade fora do bloco
+        //console.log(autor);
+
+        //REDECLARAR E REATRIBUIR
+        //var - redeclara e reatribui
+        //let - não redeclara e reatribui
+        //const - não redeclara e não reatribui
+
+        //Apesar de não poder redeclarar ou reatribuir uma constante,
+        //o valor dentro dela pode ser alterado.
+
+        //Exemplo 1 (array):
+        const competencias = ['Javascript', 'Python', 'Go']
+        console.log(competencias);
+
+        competencias[1] = 'Scala'
+        console.log(competencias);
+        
+        //Exemplo 2 (objeto):
+        const usuario = {
+            nome: 'Bruno',
+            idade: 31
+        }
+        console.log(usuario);
+        
+        usuario.idade = 50
+        usuario.cidade = 'Rio de Janeiro'
+
+        console.log(usuario);
+
+    </script>
+</body>
+
+</html>
