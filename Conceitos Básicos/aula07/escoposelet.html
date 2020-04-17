@@ -1,13 +1,105 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modelo</title>
 </head>
+
 <body>
     <script>
 
+        //Escopo
+        //Variável global
+        var nome = 'Bruno'
+        console.log(nome);
+
+        function imprimeNome() {
+            console.log(nome);
+        }
+        imprimeNome();
+
+        //Variável local
+        function imprimeIdade() {
+            var idade = 31
+            console.log(idade);
+        }
+        imprimeIdade()
+        //N funciona pq a var n está fora da função
+        //console.log(idade);
+
+        //Se não utilizar "var", a variável fica definida como global
+        function imprimePais() {
+            pais = 'Brasil'
+            console.log(pais);
+        }
+        imprimePais()
+        console.log(pais);
+        console.log(window.pais);
+        console.log(this.pais);
+
+        console.log('-------ESCOPO DINÂMICO-----------');
+
+        //Escopo dinâmico
+        //This
+        function imprimeThis() {
+            console.log('ImprimeThis', this);
+        }
+
+        function imprimeMensagem() {
+            imprimeThis.call({ msg: 'Sou um objeto' })
+        }
+
+        function imprimeMensagem2() {
+            imprimeThis.call(['Sou um array'])
+        }
+        //O JS só sabe qual é o valor da variável no momento de execução
+        imprimeMensagem()
+        imprimeMensagem2()
+        imprimeThis()
+
+        console.log('-------ESCOPO LEXICAL------------');
+
+        function usuario() {
+            var nome = 'Bruno'
+            return function () {
+                var sobrenome = 'Oliveira'
+                console.log(nome, sobrenome);
+            }
+        }
+        var user = usuario()
+        user()
+
+        console.log('-------ESCOPO DE BLOCO-----------');
+
+        if (true) {
+            var youtube = '@programadorabordo'
+            let autor = 'Ayrton'
+            console.log(youtube);
+            console.log(autor);
+        }
+        console.log(youtube);
+        //Let faz a variável valer somente dentro do bloco no qual ela foi criada
+        //console.log(autor);
+
+        let sobrenome = 'Teshima'
+        console.log(sobrenome);
+        
+        //Let não permite que eu rede fina uma variável
+        //let sobrenome = 'Jesus'
+        
+        //Posso sobrescrever a variável se não usar o let
+        sobrenome = 'Jesus'
+        console.log(sobrenome);
+
+        //Se eu criar um outro bloco, consigo criar outra variavel com o mesmo nome
+        {
+            let sobrenome = 'Silva'
+            console.log(sobrenome);
+        }
+
     </script>
 </body>
+
 </html>
