@@ -1,17 +1,80 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modelo</title>
 </head>
+
 <body>
     <script>
+        //Hoisting: trazer para o inicio do escopo a declaração de variáveis e funções.
+
+        //O JS leva as declarações de variáveis (var) para o topo do código.
+        //A atribuição de valor não vai junto
         console.log(a);
         var a = 123
+        console.log(a);
 
+        //Let e Const, não sofrem efeito do hoisting.
+        //O sistema diz que não pode acessar antes da inicialização.
+        //Temporal Dead Zone
+        //console.log(ddd);
+        //let ddd = 21
 
+        //console.log(idade);
+        //const idade = 27
 
+        //Apesar de possuir uma função, ainda é uma variável definida por var.
+        // console.log(soma(10, 5));
+        // var soma = function(a, b) {
+        //     return a + b
+        // }
+
+        //Funções não atribuidas a variáveis sofrem efeito do hoisting
+        console.log(soma(10, 5));
+        function soma(a, b) {
+            return a + b
+        }
+
+        function testaHoisting() {
+            console.log('Antes da atribuição: ', aaa);
+            var aaa = 123
+            console.log('Após a atribuição:   ', aaa);
+        }
+        testaHoisting()
+
+        /*
+        É desaconselhado usar hoisting por deixar o código desorganizado para leitura. O programador que vai dar manutenção no seu código vai se confundir por ter que ficar subindo e descendo para entender a função das variáveis. 
+        */
+
+        //Vantagem de usar hoisting em funções:
+        //Propriedade: o hoisting leva todas as declarações de funções para o início do código. Assim vc pode dar o retonrno no início que vai funcionar.
+        function calcula() {
+            //O efeito do hoisting permite dar o retorno no começo,
+            //o que facilita compreensão do código para manutenção.
+            return geraResultado()
+
+            /* 
+            muita lógica de código aqui...
+            */
+
+            function soma(a, b) {
+                return a + b
+            }
+
+            function geraResultado() {
+                return soma(10, 5)/3
+            }
+
+            // Sem hoisting, a função teria que retornar o resultado no final,
+            //o que deixaria o código mais difícil de ser lido para manutenção.
+            // return geraResultado()
+
+        }
+        console.log(calcula());
+        
 
     </script>
 </body>

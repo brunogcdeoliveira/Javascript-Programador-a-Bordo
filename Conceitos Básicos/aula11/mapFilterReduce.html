@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Filtar e Reduce</title>
+</head>
+
+<body>
+    <script>
+        //  Map
+        // pega um array, itera, aplica a função passada sobre cada valor e retorna para um novo array.
+
+        const numeros = [2, 3, 6, 5, 10]
+        let novoArrayNumeros = []
+
+        // Modo tradicional
+        for (let i = 0; i < numeros.length; i++) {
+            novoArrayNumeros.push(numeros[i] * 2)
+        }
+        console.log(novoArrayNumeros);
+
+        // Modo com map
+        const novoArrayMap = numeros.map(function (numero) {
+            return numero * 2
+        })
+        console.log(novoArrayMap);
+
+        // Modo com map e arrow function (1 linha)
+        console.log(numeros.map(numero => numero * 2));
+
+        // Outro exemplo
+        const nomes = ['Bruno', 'Ayrton', 'joão', 'Maria']
+
+        // Com map
+        const nomesMinusculos = nomes.map(function (nome) {
+            return nome.toLocaleLowerCase()
+        })
+
+        // Com map + arrow function (1 linha)
+        const nomesMinusculos2 = nomes.map(nome => nome.toLocaleLowerCase())
+
+        console.log(nomes);
+        console.log(nomesMinusculos);
+        console.log(nomesMinusculos2);
+
+        //  Filter
+        // 
+
+
+
+    </script>
+</body>
+
+</html>
